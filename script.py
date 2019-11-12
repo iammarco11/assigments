@@ -4,7 +4,6 @@ from shapely.geometry import Polygon
 
 def polygonArea(X, Y, n): 
     area = 0.0
-  
     j = n - 1
     for i in range(0,n): 
         area += (X[j] + X[i]) * (Y[j] - Y[i]) 
@@ -21,20 +20,23 @@ def combineXY(X,Y):
         temp.append(Y[i])
         bothXY.append(temp)
   return bothXY
-"""
+
 def centroidTotal(areaList, centroidList):
   shapeCentroid=[]
   areaSum=0
+  sigmaX=0
+  sigmaY=0
   for i in range(len(areaList)):
     areaSum += areaList[i]
-    sigmaX=areaList[i]*centroidList[i][0]
-    sigmaY=areaList[i]*centroidList[i][1]
+    pointXY=centroidList[i][0]
+    sigmaX+=areaList[i]*pointXY[0]
+    sigmaY+=areaList[i]*pointXY[1]
   finalX=sigmaX/areaSum
   finalY=sigmaY/areaSum
   shapeCentroid.append(finalX)
   shapeCentroid.append(finalY)
   return shapeCentroid
-"""
+
 areaList=[]
 centroidList=[]
 img = np.zeros([512,512,1],dtype=np.uint8)
@@ -56,7 +58,7 @@ for choice in range(int(input("Enter a number OF shapes : "))):
 
 print("The centroids are "+str(centroidList))
 print("The areas are "+str(areaList))
-#print(centroidTotal(areaList,centroidList))
+print("The centroid of the whole shape is "+str(centroidTotal(areaList,centroidList)))
 cv2.imshow('Single Channel Window', img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()

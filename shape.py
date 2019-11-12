@@ -1,11 +1,13 @@
-X=[0,100,100,0]
-Y=[0,0,100,100]
-
-main=[]
-for i in range(len(X)):
-    temp=[]
-    for j in range(1):
-        temp.append(X[i])
-        temp.append(Y[i])
-        main.append(temp)
-print(main)
+areaList=[50, 100]
+centroidList=[(3.333333333333333, 3.333333333333333)], [(5.0, -5.0)]]
+shapeCentroid=[]
+areaSum=0
+for i in range(len(areaList)):
+    areaSum += areaList[i]
+    sigmaX=areaList[i]*centroidList[i][0]
+    sigmaY=areaList[i]*centroidList[i][1]
+finalX=sigmaX/areaSum
+finalY=sigmaY/areaSum
+shapeCentroid.append(finalX)
+shapeCentroid.append(finalY)
+print(shapeCentroid)
