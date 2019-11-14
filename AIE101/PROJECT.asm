@@ -8,7 +8,7 @@
  M=D
  @H
  M=D
-//END
+//END OF DECLARATION
 
 
 //INITIAL PRINT OF 999
@@ -186,9 +186,9 @@
 	@20456
 	M=-1   
 
+//END OF INITIAL PRINT
 
-
-//CALCULATION BECOMES
+//CALCULATION BEGINS
 (ONES)             //Ones
  @O
  D=M
@@ -196,52 +196,128 @@
  D;JEQ
  @O
  M=M-1
- D=M
+ //SELECTION OF ONES BEGINS
  (SELECTION_O)
+        @O
+		D=M
+        @DISP0_O
+        D;JEQ
+
+        @O
+		D=M
         @1
         D=D-A
         @DISP1_O
         D;JEQ
         
+		@O
+		D=M
         @2
         D=D-A
         @DISP2_O
         D;JEQ
         
+		@O
+		D=M
         @3
         D=D-A
         @DISP3_O
         D;JEQ
 
+        @O
+		D=M
         @4
         D=D-A
         @DISP4_O
         D;JEQ
         
+		@O
+		D=M
         @5
         D=D-A
         @DISP5_O
         D;JEQ
-
+        
+		@O
+		D=M
         @6
         D=D-A
         @DISP6_O
         D;JEQ
-
+        
+		@O
+		D=M
         @7
         D=D-A
         @DISP7_O
         D;JEQ
-
+        
+		@O
+		D=M
         @8
         D=D-A
         @DISP8_O
         D;JEQ
-
+        
+		@O
+		D=M
         @9
         D=D-A
         @DISP9_O
         D;JEQ
+
+ //END OF SELECTION OF ONES 
+ 
+ //START OF DISPLAY OF ONES
+ (DISP0_O)
+	@19784
+	M=-1
+	@19816
+	M=-1
+	@19848
+	M=-1
+	@0
+	D=A
+	@8185
+	D=D-A
+	@19880
+	M=D
+	@19912
+	M=D
+	@19944
+	M=D
+	@19976
+	M=D
+	@20008
+	M=D
+	@20040
+	M=D
+	@0
+	D=A
+	@8185
+	D=D-A
+	@20168
+	M=D		
+	@20200
+	M=D
+	@20232
+	M=D
+	@20264
+	M=D
+	@20296
+	M=D	
+	@20328
+	M=D
+	@20360
+	M=D
+	@20392
+	M=-1
+	@20424
+	M=-1
+	@20456
+	M=-1
+	@ONES
+    0;JMP
 
  (DISP1_O)
      @768
@@ -290,6 +366,9 @@
 	 M=D
 	 @20456
      M=D
+	 @ONES
+     0;JMP
+
  (DISP2_O)
 	 @19784
 	 M=-1
@@ -341,8 +420,11 @@
 	 M=-1
 	 @20456
 	 M=-1	
+	 @ONES
+     0;JMP
+
  (DISP3_O)
-        @19784
+    @19784
 	M=-1
 	@19816	
 	M=-1
@@ -394,9 +476,11 @@
 	M=-1
 	@20456
 	M=-1
+	@ONES
+    0;JMP
 
  (DISP4_O)
-	@7
+    @7
 	D=A
 	@19784
 	M=D
@@ -424,13 +508,13 @@
 	M=-1
 	@20136
 	M=-1
-	@20167
+    @20168
 	M=-1
 	@1792
 	D=A
 	@20200
 	M=D
-	@20196
+	@20232
 	M=D
 	@20264
 	M=D
@@ -446,6 +530,8 @@
 	M=D
 	@20456
 	M=D
+	@ONES
+    0;JMP
 
  (DISP5_O)
     @19784
@@ -498,6 +584,8 @@
 	M=-1
 	@20456
 	M=-1
+	@ONES
+    0;JMP
 
  (DISP6_O)
 	@19784
@@ -550,6 +638,9 @@
 	M=-1
 	@20456
 	M=-1	
+	@ONES
+    0;JMP
+
  (DISP7_O)
 	@19784
 	M=-1
@@ -599,6 +690,9 @@
 	M=D
 	@20456	
 	M=D
+	@ONES
+    0;JMP
+
  (DISP8_O)
 	@19784
 	M=-1
@@ -652,6 +746,8 @@
 	M=-1
 	@20456
 	M=-1
+	@ONES
+    0;JMP
 
  (DISP9_O)
 	@19784
@@ -705,69 +801,151 @@
 	@20424
 	M=-1
 	@20456
-	M=-1   
-
- 
- @ONES
- 0;JMP
-
-
-
-
-
-
+	M=-1
+	@ONES
+    0;JMP   
 
 (TENS)             //Tens
  @T
  M=M-1
  D=M
+ @HUND
+ D;JEQ
+ @9
+ D=A
+ @O
+ M=D
  //TO SEE WHICH NUMBER TO PRINT TENS
  (SELECTION_T)
-        @1
+        @T
+		D=M
+        @DISP0_T
+        D;JEQ
+
+		@T
+		D=M
+		@1
         D=D-A
         @DISP1_T
         D;JEQ
         
+		@T
+		D=M
         @2
         D=D-A
         @DISP2_T
         D;JEQ
-    
+        
+		@T
+		D=M
         @3
         D=D-A
         @DISP3_T
         D;JEQ
-
+        
+		@T
+		D=M
         @4
         D=D-A
         @DISP4_T
         D;JEQ
         
+		@T
+		D=M
         @5
         D=D-A
         @DISP5_T
         D;JEQ
-
+        
+		@T
+		D=M
         @6
         D=D-A
         @DISP6_T
         D;JEQ
-
+        
+		@T
+		D=M
         @7
         D=D-A
         @DISP7_T
         D;JEQ
-
+        
+		@T
+		D=M
         @8
         D=D-A
         @DISP8_T
         D;JEQ
-
+        
+		@T
+		D=M
         @9
         D=D-A
         @DISP9_T
         D;JEQ
- //START OF DISPLAY 
+ 
+ //ENF OF SELECTION OF TENS
+ 
+ //START OF DISPLAY OF TENS
+ (DISP0_T)
+	@18792
+	M=-1
+	@18824
+	M=-1
+	@18856
+	M=-1
+	@0
+	D=A
+	@8185
+	D=D-A
+	@18888
+	M=D
+	@18920
+	M=D
+	@18952
+	M=D
+	@18984
+	M=D
+	@19016
+	M=D
+	@19048
+	M=D
+    //@16384
+    //D=A
+    //@0
+    //D=A-D
+	@0
+	D=A
+	@8185
+	D=D-A
+	@19176
+	M=D		
+	//@16384	
+    //D=A
+    //@0
+    //D=A-D
+	@19208
+	M=D
+	@19240
+	M=D
+	@19272
+	M=D
+	@19304
+	M=D	
+	@19336
+	M=D
+	@19368
+	M=D
+	@19400
+	M=-1
+	@19432
+	M=-1
+	@19464
+	M=-1
+	@ONES
+    0;JMP
+
  (DISP1_T)
     @768
 	D=A
@@ -790,7 +968,7 @@
 	@18984
 	M=D
 	@19016
-        M=D	
+    M=D	
 	@19048
 	M=D
 	@19080
@@ -823,8 +1001,8 @@
 	M=D
 	@19464
     M=D
-        
-
+ 	@ONES
+    0;JMP
 
  (DISP2_T)
 	@18792
@@ -877,7 +1055,8 @@
 	M=-1
 	@19464
 	M=-1
-
+	@ONES
+    0;JMP
 	
  (DISP3_T)
     @18792
@@ -932,6 +1111,8 @@
 	M=-1
 	@19464
 	M=-1
+	@ONES
+    0;JMP
 
  (DISP4_T)
 	@7
@@ -968,8 +1149,7 @@
 	//D=A
 	//@0
 	//D=A-D
-
-	@19176
+    @19176
 	M=-1
 	//@16384
 	//D=A
@@ -995,6 +1175,9 @@
 	M=D
 	@19464
 	M=D
+	@ONES
+    0;JMP
+
 
  (DISP5_T)
     @18792
@@ -1049,6 +1232,8 @@
 	M=-1
 	@19464
 	M=-1
+	@ONES
+    0;JMP
 
  (DISP6_T)
 	@18792
@@ -1109,8 +1294,9 @@
 	M=-1
 	@19464
 	M=-1
+    @ONES
+    0;JMP	
 
-	
  (DISP7_T)
 	@18792
 	M=-1
@@ -1164,6 +1350,8 @@
 	M=D
 	@19464	
 	M=D
+	@ONES
+    0;JMP
 
  (DISP8_T)
 	@18792
@@ -1226,6 +1414,8 @@
 	M=-1
 	@19464
 	M=-1
+	@ONES
+    0;JMP
 
  (DISP9_T)
 	@18792
@@ -1284,15 +1474,12 @@
 	M=-1
 	@19464
 	M=-1   
+	@ONES
+    0;JMP
+
  //END OF DIPLAY OF TENS
- @HUND
- D;JEQ
- @9
- D=A
- @O
- M=D
- @ONES
- 0;JMP
+ 
+ 
 
 
 
@@ -1305,48 +1492,79 @@
  @H
  M=M-1
  D=M
+ @END
+ D;JEQ
+ @9
+ D=A
+ @T
+ M=D
+ @O
+ M=D
  //TO SEE WHICH NUMBER TO PRINT HUND
  (SELECTION_H)
+        @H
+		D=M
+        @DISP0_H
+        D;JEQ
+
+        @H
+		D=M
         @1
         D=D-A
         @DISP1_H
         D;JEQ
-    
+        
+		@H
+		D=M
         @2
         D=D-A
         @DISP2_H
         D;JEQ
- 
+
+        @H
+		D=M
         @3
         D=D-A
         @DISP3_H
         D;JEQ
-
+        
+		@H
+		D=M
         @4
         D=D-A
         @DISP4_H
         D;JEQ
         
+		@H
+		D=M
         @5
         D=D-A
         @DISP5_H
         D;JEQ
-
+        
+		@H
+		D=M
         @6
         D=D-A
         @DISP6_H
         D;JEQ
      	
+		@H
+		D=M
         @7
         D=D-A
         @DISP7_H
         D;JEQ
-	
+	    
+		@H
+		D=M
         @8
         D=D-A
         @DISP8_H
         D;JEQ
-
+        
+		@H
+		D=M
         @9
         D=D-A
         @DISP9_H
@@ -1355,6 +1573,64 @@
  //END OF SELECTION OF HUND
 
  //START OF DISPLAYS OF HUND
+ (DISP0_H)
+	@17800
+	M=-1
+	@17832
+	M=-1
+	@17864
+	M=-1
+	@0
+	D=A
+	@8185
+	D=D-A
+	@17896
+	M=D
+	@17928
+	M=D
+	@17960
+	M=D
+	@17992
+	M=D
+	@18024
+	M=D
+	@18056
+	M=D
+    //@16384
+    //D=A
+    //@0
+    //D=A-D
+	@0
+	D=A
+	@8185
+	D=D-A	
+	@18184
+	M=D
+    //@16384
+    //D=A
+    //@0
+    //D=A-D
+	@18216
+	M=D	
+	@18248
+	M=D
+	@18280	
+	M=D
+	@18312
+	M=D
+	@18344
+	M=D
+	@18376
+	M=D
+	@18408
+	M=-1
+	@18440
+	M=-1
+	@18472
+	M=-1
+	@ONES
+    0;JMP
+
  (DISP1_H)
     @768
 	D=A
@@ -1377,7 +1653,7 @@
 	@17992
 	M=D
 	@18024
-        M=D	
+    M=D	
 	@18056
 	M=D
 	@18088
@@ -1410,6 +1686,8 @@
 	M=D
 	@18472
     M=D
+	@ONES
+    0;JMP
 
  (DISP2_H)
 	@17800
@@ -1462,9 +1740,11 @@
 	M=-1
 	@18472
 	M=-1
+	@ONES
+    0;JMP
     
  (DISP3_H)
-       	@17800
+    @17800
 	M=-1
 	@17832
 	M=-1
@@ -1516,6 +1796,8 @@
 	M=-1
 	@18472
 	M=-1
+	@ONES
+    0;JMP
     
  (DISP4_H)
 	@7
@@ -1579,6 +1861,8 @@
 	M=D
 	@18472
 	M=D
+	@ONES
+    0;JMP
     
  (DISP5_H)
     @17800
@@ -1633,6 +1917,8 @@
 	M=-1
 	@18472
 	M=-1
+	@ONES
+    0;JMP
 
  (DISP6_H)
 	@17800
@@ -1693,6 +1979,8 @@
 	M=-1
 	@18472
 	M=-1
+	@ONES
+    0;JMP
 
  (DISP7_H)
 	@17800
@@ -1747,6 +2035,8 @@
 	M=D
 	@18472
 	M=D
+	@ONES
+    0;JMP
 
  (DISP8_H)
 	@17800
@@ -1809,6 +2099,8 @@
 	M=-1
 	@18472
 	M=-1
+	@ONES
+    0;JMP
 
  (DISP9_H)
 	@17800
@@ -1867,19 +2159,10 @@
 	M=-1
 	@18472
     M=-1
+	@ONES
+    0;JMP
 
  //END OF DISPLAYS OF HUND
-
- @END
- D;JEQ
- @9
- D=A
- @T
- M=D
- @O
- M=D
- @ONES
- 0;JMP
 
 (END)              //End of the program
  @END
