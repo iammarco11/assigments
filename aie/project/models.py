@@ -3,9 +3,9 @@ from django.db import models
 class Shape(models.Model):
     sides = models.PositiveIntegerField()
 
-    def save(self):
+    def save(self,**kwargs):
         created = self.pk is None
-        super(Shape).save()
+        super().save(**kwargs)
         if created:
             for i in range(self.sides):
                 Coordinate.objects.create(shape_id=self.id)
